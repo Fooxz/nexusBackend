@@ -30,6 +30,17 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/productos/**").permitAll()
+                        .requestMatchers(
+                                "/api/celulares/**",
+                                "/api/cpus/**",
+                                "/api/gpus/**",
+                                "/api/rams/**",
+                                "/api/motherboards/**",
+                                "/api/storages/**",
+                                "/api/psus/**",
+                                "/api/cases/**",
+                                "/api/coolings/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

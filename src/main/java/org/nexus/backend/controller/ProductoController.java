@@ -2,12 +2,11 @@ package org.nexus.backend.controller;
 
 import org.nexus.backend.model.entity.Producto;
 import org.nexus.backend.repository.ProductoRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/productos")
@@ -20,12 +19,22 @@ public class ProductoController {
     }
 
     @GetMapping
-    public List<Producto> listar() {
-        return productoRepository.findAll();
+    public List<Producto> listar(@RequestParam(required = false) String categoria) {
+        if (categoria != null && !categoria.isEmpty()) {
+            return productoRepository.findByCategoriaAndActivoTrue(categoria);
+        }
+        return productoRepository.findByActivoTrue();
     }
 
     @GetMapping("/categoria/{categoria}")
     public List<Producto> porCategoria(@PathVariable String categoria) {
-        return productoRepository.findByCategoria(categoria);
+        return productoRepository.findByCategoriaAndActivoTrue(categoria);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Producto> obtenerPorId(@PathVariable UUID id) {
+        return productoRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 }
