@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/storages")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class StorageController {
 
     private final StorageRepository storageRepository;

@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/gpus")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class GpuController {
 
     private final GpuRepository gpuRepository;

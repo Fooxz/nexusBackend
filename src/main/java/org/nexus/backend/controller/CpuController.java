@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/cpus")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class CpuController {
 
     private final CpuRepository cpuRepository;

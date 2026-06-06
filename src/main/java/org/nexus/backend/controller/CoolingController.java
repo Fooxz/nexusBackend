@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/coolings")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class CoolingController {
 
     private final CoolingRepository coolingRepository;

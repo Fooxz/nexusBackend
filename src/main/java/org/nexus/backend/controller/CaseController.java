@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/cases")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class CaseController {
 
     private final CaseRepository caseRepository;

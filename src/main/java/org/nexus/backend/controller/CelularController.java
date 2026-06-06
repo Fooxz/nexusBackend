@@ -12,7 +12,6 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/celulares")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class CelularController {
 
     private final CelularRepository celularRepository;

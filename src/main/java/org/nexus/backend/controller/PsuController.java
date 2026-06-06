@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/psus")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class PsuController {
 
     private final PsuRepository psuRepository;

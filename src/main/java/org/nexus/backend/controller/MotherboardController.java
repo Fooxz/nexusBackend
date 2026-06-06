@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/motherboards")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class MotherboardController {
 
     private final MotherboardRepository motherboardRepository;

@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/rams")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class RamController {
 
     private final RamRepository ramRepository;
